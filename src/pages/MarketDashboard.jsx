@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const MarketDashboard = () => {
     return (
         <div className="bg-background-light dark:bg-background-dark min-h-screen text-[#111816] dark:text-white font-display">
-            <div className="relative flex min-h-screen w-full flex-col max-w-[480px] mx-auto bg-white dark:bg-background-dark shadow-xl pb-24">
+            <div className="relative flex min-h-screen w-full flex-col max-w-7xl mx-auto bg-white dark:bg-background-dark shadow-xl pb-24 border-x border-gray-100 dark:border-white/5">
                 {/* TopAppBar */}
                 <header className="sticky top-0 z-50 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-gray-100 dark:border-white/10">
                     <div className="flex items-center p-4 justify-between">
@@ -37,7 +37,7 @@ const MarketDashboard = () => {
                     </div>
 
                     {/* Quick Stats Grid */}
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
                         <div className="bg-white dark:bg-white/5 border border-gray-100 dark:border-white/10 p-4 rounded-xl shadow-sm">
                             <p className="text-[#63886f] text-xs font-bold uppercase tracking-wider mb-1">Total Market</p>
                             <div className="flex items-baseline gap-2">
@@ -54,55 +54,57 @@ const MarketDashboard = () => {
                         </div>
                     </div>
 
-                    {/* Funding Trends Chart Mockup */}
-                    <section>
-                        <div className="flex items-center justify-between mb-4">
-                            <h4 className="text-lg font-bold tracking-tight">Funding Trends</h4>
-                            <select className="bg-transparent text-primary text-xs font-bold border-none focus:ring-0 cursor-pointer">
-                                <option>Last 6 Months</option>
-                                <option>Last Year</option>
-                            </select>
-                        </div>
-                        <div className="bg-white dark:bg-white/5 border border-gray-100 dark:border-white/10 p-4 rounded-2xl">
-                            <div className="h-48 w-full flex items-end gap-2 pb-6 relative">
-                                {[45, 60, 42, 85, 55, 75].map((h, i) => (
-                                    <div key={i} className="flex-1 bg-primary/20 hover:bg-primary transition-colors rounded-t-lg relative group cursor-pointer" style={{ height: `${h}%` }}>
-                                        <div className="absolute -top-10 left-1/2 -translate-x-1/2 bg-[#10221c] text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
-                                            ${h}M
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        {/* Funding Trends Chart Mockup */}
+                        <section>
+                            <div className="flex items-center justify-between mb-4">
+                                <h4 className="text-lg font-bold tracking-tight">Funding Trends</h4>
+                                <select className="bg-transparent text-primary text-xs font-bold border-none focus:ring-0 cursor-pointer">
+                                    <option>Last 6 Months</option>
+                                    <option>Last Year</option>
+                                </select>
+                            </div>
+                            <div className="bg-white dark:bg-white/5 border border-gray-100 dark:border-white/10 p-4 rounded-2xl h-full">
+                                <div className="h-48 w-full flex items-end gap-2 pb-6 relative">
+                                    {[45, 60, 42, 85, 55, 75].map((h, i) => (
+                                        <div key={i} className="flex-1 bg-primary/20 hover:bg-primary transition-colors rounded-t-lg relative group cursor-pointer" style={{ height: `${h}%` }}>
+                                            <div className="absolute -top-10 left-1/2 -translate-x-1/2 bg-[#10221c] text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
+                                                ${h}M
+                                            </div>
+                                        </div>
+                                    ))}
+                                    {/* Y-Axis Guideline */}
+                                    <div className="absolute left-0 bottom-6 right-0 h-px bg-gray-100 dark:bg-white/5"></div>
+                                </div>
+                                <div className="flex justify-between px-2 text-[10px] text-[#63886f] font-bold uppercase">
+                                    <span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span>
+                                </div>
+                            </div>
+                        </section>
+
+                        {/* Sector Allocation */}
+                        <section>
+                            <h4 className="text-lg font-bold tracking-tight mb-4">Top Invested Sectors</h4>
+                            <div className="space-y-4 bg-white dark:bg-white/5 border border-gray-100 dark:border-white/10 p-6 rounded-2xl h-full">
+                                {[
+                                    { name: 'Telemedicine', percent: 45, color: '#15A147' },
+                                    { name: 'E-Pharmacy', percent: 28, color: '#63886f' },
+                                    { name: 'Insurtech', percent: 18, color: '#2b4d44' },
+                                    { name: 'Diagnostics', percent: 9, color: '#8fb7ab' },
+                                ].map((sector, i) => (
+                                    <div key={i} className="flex flex-col gap-1.5">
+                                        <div className="flex justify-between items-center text-xs font-bold">
+                                            <span>{sector.name}</span>
+                                            <span className="text-[#63886f]">{sector.percent}%</span>
+                                        </div>
+                                        <div className="h-2 bg-gray-100 dark:bg-white/10 rounded-full overflow-hidden">
+                                            <div className="h-full rounded-full transition-all duration-1000" style={{ width: `${sector.percent}%`, backgroundColor: sector.color }}></div>
                                         </div>
                                     </div>
                                 ))}
-                                {/* Y-Axis Guideline */}
-                                <div className="absolute left-0 bottom-6 right-0 h-px bg-gray-100 dark:bg-white/5"></div>
                             </div>
-                            <div className="flex justify-between px-2 text-[10px] text-[#63886f] font-bold uppercase">
-                                <span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span>
-                            </div>
-                        </div>
-                    </section>
-
-                    {/* Sector Allocation */}
-                    <section>
-                        <h4 className="text-lg font-bold tracking-tight mb-4">Top Invested Sectors</h4>
-                        <div className="space-y-3">
-                            {[
-                                { name: 'Telemedicine', percent: 45, color: '#19e65e' },
-                                { name: 'E-Pharmacy', percent: 28, color: '#63886f' },
-                                { name: 'Insurtech', percent: 18, color: '#2b4d44' },
-                                { name: 'Diagnostics', percent: 9, color: '#8fb7ab' },
-                            ].map((sector, i) => (
-                                <div key={i} className="flex flex-col gap-1.5">
-                                    <div className="flex justify-between items-center text-xs font-bold">
-                                        <span>{sector.name}</span>
-                                        <span className="text-[#63886f]">{sector.percent}%</span>
-                                    </div>
-                                    <div className="h-2 bg-gray-100 dark:bg-white/10 rounded-full overflow-hidden">
-                                        <div className="h-full rounded-full transition-all duration-1000" style={{ width: `${sector.percent}%`, backgroundColor: sector.color }}></div>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </section>
+                        </section>
+                    </div>
 
                     {/* Recent Major Rounds */}
                     <section className="pb-8">

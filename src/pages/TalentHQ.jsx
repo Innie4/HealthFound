@@ -89,7 +89,7 @@ const TalentHQ = () => {
                 </div>
             </div>
 
-            <main className="max-w-4xl mx-auto pb-32">
+            <main className="max-w-7xl mx-auto pb-32">
                 {/* Search & Filter Section */}
                 <div className="bg-white dark:bg-transparent px-6 py-10 border-b border-[#dbe6e2] dark:border-gray-800">
                     <motion.div
@@ -179,7 +179,7 @@ const TalentHQ = () => {
                 {/* Recent Opportunities List */}
                 <div className="px-6 pt-12">
                     <h2 className="text-[#111816] dark:text-white text-3xl font-black tracking-tight pb-8">Recent Opportunities</h2>
-                    <div className="flex flex-col gap-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         {recentRoles.map((role, idx) => (
                             <motion.div
                                 key={role.id}

@@ -83,7 +83,7 @@ const Comparison = () => {
                         {/* Chart SVG Mockup */}
                         <div className="relative min-h-[120px] w-full">
                             <svg fill="none" height="120" preserveAspectRatio="none" viewBox="0 0 400 120" width="100%" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M0 100 Q 50 80, 100 90 T 200 40 T 300 60 T 400 20" fill="none" stroke="#19e65e" strokeWidth="3" className="drop-shadow-sm"></path>
+                                <path d="M0 100 Q 50 80, 100 90 T 200 40 T 300 60 T 400 20" fill="none" stroke="#15A147" strokeWidth="3" className="drop-shadow-sm"></path>
                                 <path d="M0 110 Q 50 100, 100 95 T 200 80 T 300 70 T 400 50" fill="none" stroke="#63886f" strokeDasharray="4 2" strokeWidth="2"></path>
                             </svg>
                         </div>

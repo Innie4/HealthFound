@@ -195,6 +195,65 @@ const Home = () => {
                             </div>
                         </Link>
                     </div>
+
+                    {/* Specialized Hubs / Sub-Brands */}
+                    <div className="mt-16 bg-white dark:bg-white/5 border border-gray-100 dark:border-white/10 rounded-[2.5rem] p-8 md:p-12 shadow-sm">
+                        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-12">
+                            <div>
+                                <h3 className="text-3xl font-black tracking-tight mb-2">Specialized Intelligence</h3>
+                                <p className="text-gray-500 dark:text-gray-400 font-medium">Curated destinations for specific healthcare career and business needs.</p>
+                            </div>
+                            <div className="flex gap-2">
+                                <div className="size-3 rounded-full bg-[#15A147]"></div>
+                                <div className="size-3 rounded-full bg-[#639041]"></div>
+                                <div className="size-3 rounded-full bg-[#B3D684]"></div>
+                            </div>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                            {/* Workplace Corner */}
+                            <Link to="/workplace-corner" className="group">
+                                <div className="bg-[#15A147]/5 hover:bg-[#15A147]/10 border-2 border-[#15A147]/10 p-8 rounded-3xl transition-all hover:scale-[1.02] h-full flex flex-col justify-between">
+                                    <div className="space-y-4">
+                                        <div className="size-14 rounded-2xl bg-[#15A147] flex items-center justify-center text-white shadow-lg">
+                                            <span className="material-symbols-outlined text-3xl font-bold">work</span>
+                                        </div>
+                                        <h4 className="text-2xl font-black">Workplace Corner</h4>
+                                        <p className="text-sm font-medium opacity-60">Master the business of medicine.</p>
+                                    </div>
+                                    <span className="material-symbols-outlined mt-8 group-hover:translate-x-2 transition-transform text-[#15A147]">arrow_forward</span>
+                                </div>
+                            </Link>
+
+                            {/* Startup Weekly */}
+                            <Link to="/startup-weekly" className="group">
+                                <div className="bg-[#639041]/5 hover:bg-[#639041]/10 border-2 border-[#639041]/10 p-8 rounded-3xl transition-all hover:scale-[1.02] h-full flex flex-col justify-between">
+                                    <div className="space-y-4">
+                                        <div className="size-14 rounded-2xl bg-[#639041] flex items-center justify-center text-white shadow-lg">
+                                            <span className="material-symbols-outlined text-3xl font-bold">rocket_launch</span>
+                                        </div>
+                                        <h4 className="text-2xl font-black">Startup Weekly</h4>
+                                        <p className="text-sm font-medium opacity-60">The founder's playbook.</p>
+                                    </div>
+                                    <span className="material-symbols-outlined mt-8 group-hover:translate-x-2 transition-transform text-[#639041]">arrow_forward</span>
+                                </div>
+                            </Link>
+
+                            {/* Career Convo */}
+                            <Link to="/career-convo" className="group">
+                                <div className="bg-[#B3D684]/10 hover:bg-[#B3D684]/20 border-2 border-[#B3D684]/10 p-8 rounded-3xl transition-all hover:scale-[1.02] h-full flex flex-col justify-between text-[#2a3c1c] dark:text-[#B3D684]">
+                                    <div className="space-y-4">
+                                        <div className="size-14 rounded-2xl bg-[#B3D684] flex items-center justify-center text-[#2a3c1c] shadow-lg">
+                                            <span className="material-symbols-outlined text-3xl font-bold">forum</span>
+                                        </div>
+                                        <h4 className="text-2xl font-black">Career Convo</h4>
+                                        <p className="text-sm font-black opacity-60">Humanized health insights.</p>
+                                    </div>
+                                    <span className="material-symbols-outlined mt-8 group-hover:translate-x-2 transition-transform">arrow_forward</span>
+                                </div>
+                            </Link>
+                        </div>
+                    </div>
                 </section>
 
                 {/* Newsletter Subscription Card */}

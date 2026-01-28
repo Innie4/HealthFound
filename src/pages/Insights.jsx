@@ -130,12 +130,12 @@ const Insights = () => {
                             {/* Decorative background elements for dashboard feel */}
                             <div className="absolute right-0 top-0 opacity-20 pointer-events-none -translate-y-4 translate-x-4">
                                 <svg fill="none" height="200" viewbox="0 0 200 150" width="250" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M10 140L50 100L90 120L140 40L190 60" stroke="#19e65e" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"></path>
-                                    <circle cx="10" cy="140" fill="#19e65e" r="4"></circle>
-                                    <circle cx="50" cy="100" fill="#19e65e" r="4"></circle>
-                                    <circle cx="90" cy="120" fill="#19e65e" r="4"></circle>
-                                    <circle cx="140" cy="40" fill="#19e65e" r="4"></circle>
-                                    <circle cx="190" cy="60" fill="#19e65e" r="4"></circle>
+                                    <path d="M10 140L50 100L90 120L140 40L190 60" stroke="#15A147" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"></path>
+                                    <circle cx="10" cy="140" fill="#15A147" r="4"></circle>
+                                    <circle cx="50" cy="100" fill="#15A147" r="4"></circle>
+                                    <circle cx="90" cy="120" fill="#15A147" r="4"></circle>
+                                    <circle cx="140" cy="40" fill="#15A147" r="4"></circle>
+                                    <circle cx="190" cy="60" fill="#15A147" r="4"></circle>
                                 </svg>
                             </div>
                             <div className="relative z-10 space-y-4">

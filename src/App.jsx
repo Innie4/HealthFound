@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import CookieConsent from './components/CookieConsent';
 import Home from './pages/Home';
 import Newsletter from './pages/Newsletter';
 import Contact from './pages/Contact';
@@ -44,10 +45,15 @@ import Referral from './pages/Referral';
 import TrendsMap from './pages/TrendsMap';
 import TopStartups from './pages/TopStartups';
 import SuccessNewsletter from './pages/SuccessNewsletter';
+import CareerConvo from './pages/CareerConvo';
+import StartupWeekly from './pages/StartupWeekly';
+import WorkplaceCorner from './pages/WorkplaceCorner';
+import NotFound from './pages/NotFound';
 
 function App() {
   return (
     <Router>
+      <CookieConsent />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/newsletters" element={<Newsletter />} />
@@ -94,6 +100,10 @@ function App() {
         <Route path="/trends-map" element={<TrendsMap />} />
         <Route path="/top-startups" element={<TopStartups />} />
         <Route path="/success-newsletter" element={<SuccessNewsletter />} />
+        <Route path="/career-convo" element={<CareerConvo />} />
+        <Route path="/startup-weekly" element={<StartupWeekly />} />
+        <Route path="/workplace-corner" element={<WorkplaceCorner />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
   );

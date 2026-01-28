@@ -6,7 +6,7 @@ const Membership = () => {
 
     return (
         <div className="bg-background-light dark:bg-background-dark min-h-screen text-[#111811] dark:text-white font-display">
-            <div className="relative flex h-auto min-h-screen w-full flex-col max-w-[480px] mx-auto bg-white dark:bg-[#0a0a0a] shadow-xl overflow-x-hidden pb-10">
+            <div className="relative flex h-auto min-h-screen w-full flex-col max-w-7xl mx-auto bg-white dark:bg-[#0a0a0a] shadow-xl overflow-x-hidden pb-10 border-x border-gray-100 dark:border-white/5">
                 {/* Top Header */}
                 <div className="flex items-center p-4 pt-6 justify-between bg-white dark:bg-[#0a0a0a]">
                     <Link to="/profile" className="text-[#111811] dark:text-white transition-opacity hover:opacity-70">
@@ -46,7 +46,7 @@ const Membership = () => {
                     </div>
 
                     {/* Tiers Scroll/Stack */}
-                    <div className="flex flex-col gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
                         {/* Tier 1: Pro Individal */}
                         <div className="relative p-6 rounded-3xl border-2 border-primary/20 bg-white dark:bg-white/5 shadow-lg group hover:border-primary transition-all duration-300">
                             <div className="flex justify-between items-start mb-6">

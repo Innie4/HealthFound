@@ -20,7 +20,7 @@ const About = () => {
 
     return (
         <div className="bg-background-light dark:bg-background-dark min-h-screen">
-            <div className="relative flex h-auto min-h-screen w-full flex-col max-w-[480px] mx-auto bg-white dark:bg-background-dark shadow-2xl overflow-x-hidden">
+            <div className="relative flex h-auto min-h-screen w-full flex-col max-w-7xl mx-auto bg-white dark:bg-background-dark shadow-2xl overflow-x-hidden border-x border-gray-100 dark:border-white/5">
                 {/* TopAppBar */}
                 <div className="flex items-center bg-white/95 dark:bg-background-dark/95 backdrop-blur-md p-4 pb-2 justify-between sticky top-0 z-50 border-b border-[#dce5df] dark:border-[#2a3d31]">
                     <Link to="/" className="text-[#111813] dark:text-white flex size-12 shrink-0 items-center justify-start cursor-pointer hover:bg-gray-100 dark:hover:bg-white/10 rounded-full transition-colors pl-2">
@@ -60,7 +60,7 @@ const About = () => {
                 </div>
 
                 {/* TextGrid: Pillars */}
-                <div className="grid grid-cols-1 gap-4 p-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
                     {pillars.map((pillar, idx) => (
                         <motion.div
                             key={pillar.title}
@@ -85,7 +85,7 @@ const About = () => {
                 </div>
 
                 {/* Culture Framework Section */}
-                <div className="p-4 flex flex-col gap-4 mb-12">
+                <div className="p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
                     {culture.map((item, idx) => (
                         <motion.div
                             key={item.title}
@@ -107,7 +107,7 @@ const About = () => {
                 </div>
 
                 {/* Footer Button */}
-                <div className="p-6 mt-4 pb-16">
+                <div className="p-6 mt-4 pb-16 max-w-xl mx-auto w-full">
                     <button className="w-full bg-primary text-[#112116] font-black py-5 rounded-2xl flex items-center justify-center gap-3 hover:shadow-2xl hover:shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all shadow-xl">
                         Join our Journey
                         <span className="material-symbols-outlined font-black">chevron_right</span>

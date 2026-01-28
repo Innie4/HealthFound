@@ -24,13 +24,13 @@ const Advertise = () => {
                 </div>
             </div>
 
-            <main className="flex flex-col pb-32 max-w-5xl mx-auto w-full">
+            <main className="flex flex-col pb-32 max-w-7xl mx-auto w-full border-x border-gray-100 dark:border-white/5 bg-white dark:bg-background-dark shadow-xl">
                 {/* Hero Section */}
                 <div className="p-4">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="flex min-h-[500px] flex-col gap-8 bg-cover bg-center bg-no-repeat rounded-3xl items-start justify-end px-8 pb-12 shadow-2xl relative overflow-hidden"
+                        className="flex min-h-[500px] flex-col gap-8 bg-cover bg-center bg-no-repeat rounded-3xl items-start justify-end px-12 pb-16 shadow-2xl relative overflow-hidden"
                         style={{
                             backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.9) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuBdSCT2Z8IUhwMrxYCfXAvwiFDZCXHLVBOwyLwXOmjVFmDrNRlj-5J11S8CKTn2OW5V2mVDzzjT22uj6exGV2Am3xkZo1qaHvdK-W6IWllKOAjLEW7geDhqIXr6_WQUsMyf9WfGzHhImc5kWSeAe5no6Sx0musvZWJZ6wL_iNOU5t56n_vXJ-5V63ZDLZN_YLDA-KY1Pvk8Rq0HVCA2HFNNLZIO3eganU4cXkAONPQ_UVQkjxf0I_wbaLrFlK0O3-2F_rzVXvw9OQ")'
                         }}
@@ -100,7 +100,7 @@ const Advertise = () => {
                 </div>
 
                 {/* Ad Options Cards */}
-                <div className="flex flex-col gap-4 p-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
                     {[
                         { icon: "language", title: "Website Display Ads", desc: "Targeted banners on our high-traffic intelligence hub." },
                         { icon: "mail", title: "Newsletter Sponsorships", desc: "Direct inbox access to 15k+ highly active weekly subscribers." },

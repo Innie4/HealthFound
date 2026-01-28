@@ -44,8 +44,8 @@ const NewsFeed = () => {
     return (
         <div className="bg-background-light dark:bg-background-dark min-h-screen text-[#111813] dark:text-white">
             {/* Top Navigation Bar */}
-            <nav className="sticky top-0 z-50 bg-white/90 dark:bg-background-dark/95 backdrop-blur-md border-b border-gray-100 dark:border-white/5">
-                <div className="flex items-center p-4 justify-between max-w-xl mx-auto">
+            <nav className="sticky top-0 z-50 bg-white/90 dark:bg-background-dark/95 backdrop-blur-md border-b border-gray-100 dark:border-white/10">
+                <div className="flex items-center p-4 justify-between max-w-7xl mx-auto">
                     <Link to="/" className="flex items-center gap-2">
                         <div className="bg-primary p-2 rounded-xl shadow-lg shadow-primary/20">
                             <span className="material-symbols-outlined text-[#112116] text-xl font-black">health_metrics</span>
@@ -63,7 +63,7 @@ const NewsFeed = () => {
                 </div>
             </nav>
 
-            <main className="max-w-xl mx-auto pb-32">
+            <main className="max-w-7xl mx-auto pb-32">
                 {/* Page Title & Intro */}
                 <div className="px-5 pt-10 pb-4">
                     <motion.h2
@@ -115,7 +115,7 @@ const NewsFeed = () => {
                 </div>
 
                 {/* News Archive Grid */}
-                <div className="mt-8 px-5 space-y-10">
+                <div className="mt-8 px-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <AnimatePresence mode="popLayout">
                         {filteredArticles.map((article, index) => (
                             <motion.div
