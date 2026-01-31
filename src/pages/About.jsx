@@ -20,7 +20,7 @@ const About = () => {
 
     return (
         <div className="bg-background-light dark:bg-background-dark min-h-screen">
-            <div className="relative flex h-auto min-h-screen w-full flex-col max-w-7xl mx-auto bg-white dark:bg-background-dark shadow-2xl overflow-x-hidden border-x border-gray-100 dark:border-white/5">
+            <div className="relative flex h-auto min-h-screen w-full flex-col max-w-5xl mx-auto bg-white dark:bg-background-dark shadow-2xl overflow-x-hidden border-x border-gray-100 dark:border-white/5">
                 {/* TopAppBar */}
                 <div className="flex items-center bg-white/95 dark:bg-background-dark/95 backdrop-blur-md p-4 pb-2 justify-between sticky top-0 z-50 border-b border-[#dce5df] dark:border-[#2a3d31]">
                     <Link to="/" className="text-[#111813] dark:text-white flex size-12 shrink-0 items-center justify-start cursor-pointer hover:bg-gray-100 dark:hover:bg-white/10 rounded-full transition-colors pl-2">

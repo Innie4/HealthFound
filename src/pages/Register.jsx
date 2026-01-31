@@ -1,7 +1,36 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Register = () => {
+    const navigate = useNavigate();
+    const [formData, setFormData] = useState({
+        fullName: '',
+        email: '',
+        role: '',
+        password: '',
+        agreeTerms: false,
+        newsletter: true
+    });
+
+    const handleChange = (e) => {
+        const { name, value, type, checked } = e.target;
+        setFormData(prev => ({
+            ...prev,
+            [name]: type === 'checkbox' ? checked : value
+        }));
+    };
+
+    const handleRegister = (e) => {
+        e.preventDefault();
+        // Simulate registration
+        if (formData.email && formData.password && formData.fullName && formData.agreeTerms) {
+            localStorage.setItem('healthfound_user', JSON.stringify({ email: formData.email, name: formData.fullName }));
+            navigate('/');
+        } else {
+            alert("Please fill all fields and agree to terms.");
+        }
+    };
+
     return (
         <div className="bg-background-light dark:bg-background-dark min-h-screen flex justify-center items-start font-display">
             <div className="relative flex h-auto min-h-screen w-full max-w-[480px] flex-col bg-white dark:bg-[#111816] overflow-x-hidden shadow-xl">
@@ -23,7 +52,7 @@ const Register = () => {
                     <div className="h-4"></div>
 
                     {/* Form Section */}
-                    <form className="flex flex-col gap-1">
+                    <form className="flex flex-col gap-1" onSubmit={handleRegister}>
                         {/* Full Name Field */}
                         <div className="flex flex-wrap items-end gap-4 px-4 py-2">
                             <label className="flex flex-col min-w-40 flex-1">
@@ -32,6 +61,10 @@ const Register = () => {
                                     className="form-input flex w-full min-w-0 flex-1 rounded-lg text-[#111816] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-[#dbe6e2] dark:border-gray-700 bg-white dark:bg-gray-800 h-14 placeholder:text-[#61897c] dark:placeholder:text-gray-500 p-[15px] text-base font-normal"
                                     placeholder="e.g., Jane Doe"
                                     type="text"
+                                    name="fullName"
+                                    value={formData.fullName}
+                                    onChange={handleChange}
+                                    required
                                 />
                             </label>
                         </div>
@@ -44,6 +77,10 @@ const Register = () => {
                                     className="form-input flex w-full min-w-0 flex-1 rounded-lg text-[#111816] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-[#dbe6e2] dark:border-gray-700 bg-white dark:bg-gray-800 h-14 placeholder:text-[#61897c] dark:placeholder:text-gray-500 p-[15px] text-base font-normal"
                                     placeholder="name@example.com"
                                     type="email"
+                                    name="email"
+                                    value={formData.email}
+                                    onChange={handleChange}
+                                    required
                                 />
                             </label>
                         </div>
@@ -53,8 +90,14 @@ const Register = () => {
                             <label className="flex flex-col min-w-40 flex-1">
                                 <p className="text-[#111816] dark:text-white text-base font-medium leading-normal pb-2">Professional Role</p>
                                 <div className="relative">
-                                    <select className="form-select appearance-none flex w-full min-w-0 flex-1 rounded-lg text-[#111816] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-[#dbe6e2] dark:border-gray-700 bg-white dark:bg-gray-800 h-14 p-[15px] text-base font-normal pr-10">
-                                        <option disabled selected value="">Select your role</option>
+                                    <select
+                                        className="form-select appearance-none flex w-full min-w-0 flex-1 rounded-lg text-[#111816] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-[#dbe6e2] dark:border-gray-700 bg-white dark:bg-gray-800 h-14 p-[15px] text-base font-normal pr-10"
+                                        name="role"
+                                        value={formData.role}
+                                        onChange={handleChange}
+                                        required
+                                    >
+                                        <option disabled value="">Select your role</option>
                                         <option value="provider">Healthcare Provider</option>
                                         <option value="founder">Startup Founder</option>
                                         <option value="investor">Investor</option>
@@ -77,6 +120,11 @@ const Register = () => {
                                         className="form-input flex w-full min-w-0 flex-1 rounded-lg text-[#111816] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-[#dbe6e2] dark:border-gray-700 bg-white dark:bg-gray-800 h-14 placeholder:text-[#61897c] dark:placeholder:text-gray-500 p-[15px] text-base font-normal"
                                         placeholder="Minimum 8 characters"
                                         type="password"
+                                        name="password"
+                                        value={formData.password}
+                                        onChange={handleChange}
+                                        required
+                                        minLength={8}
                                     />
                                     <div className="absolute inset-y-0 right-0 flex items-center px-3 text-gray-500 cursor-pointer">
                                         <span className="material-symbols-outlined">visibility</span>
@@ -88,13 +136,26 @@ const Register = () => {
                         {/* Checkboxes */}
                         <div className="px-4 py-4 flex flex-col gap-4">
                             <label className="flex items-start gap-3 cursor-pointer group">
-                                <input className="mt-1 size-5 rounded border-[#dbe6e2] text-primary focus:ring-primary dark:bg-gray-800 dark:border-gray-700 transition-colors" type="checkbox" />
+                                <input
+                                    className="mt-1 size-5 rounded border-[#dbe6e2] text-primary focus:ring-primary dark:bg-gray-800 dark:border-gray-700 transition-colors"
+                                    type="checkbox"
+                                    name="agreeTerms"
+                                    checked={formData.agreeTerms}
+                                    onChange={handleChange}
+                                    required
+                                />
                                 <span className="text-[#111816] dark:text-gray-300 text-sm font-normal leading-tight">
                                     I agree to the <span className="text-primary font-semibold underline">Terms</span> and <span className="text-primary font-semibold underline">Privacy Policy</span>
                                 </span>
                             </label>
                             <label className="flex items-start gap-3 cursor-pointer group">
-                                <input defaultChecked className="mt-1 size-5 rounded border-[#dbe6e2] text-primary focus:ring-primary dark:bg-gray-800 dark:border-gray-700 transition-colors" type="checkbox" />
+                                <input
+                                    className="mt-1 size-5 rounded border-[#dbe6e2] text-primary focus:ring-primary dark:bg-gray-800 dark:border-gray-700 transition-colors"
+                                    type="checkbox"
+                                    name="newsletter"
+                                    checked={formData.newsletter}
+                                    onChange={handleChange}
+                                />
                                 <span className="text-[#111816] dark:text-gray-300 text-sm font-normal leading-tight">
                                     Subscribe to the Startup Weekly newsletter
                                 </span>

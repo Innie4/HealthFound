@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import BottomNav from '../components/BottomNav';
+import logo from '../assets/HealthF.jpeg';
 
 const TalentHQ = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [location, setLocation] = useState('');
+    const [visibleCount, setVisibleCount] = useState(4);
 
     const featuredRoles = [
         {
@@ -64,8 +66,60 @@ const TalentHQ = () => {
             salary: "$3.0k - $4.5k",
             type: "Full-time",
             workStyle: "Office"
+        },
+        {
+            id: 7,
+            title: "Senior Nurse Practitioner",
+            company: "Lagos Medical",
+            location: "Lagos, Nigeria",
+            salary: "Competitive",
+            type: "Full-time",
+            workStyle: "On-site"
+        },
+        {
+            id: 8,
+            title: "Chief Medical Officer",
+            company: "HealthPlus",
+            location: "Abuja, Nigeria",
+            salary: "$5.0k - $8.0k",
+            type: "Full-time",
+            workStyle: "Hybrid"
+        },
+        {
+            id: 9,
+            title: "Backend Developer (Health)",
+            company: "MedTech Solutions",
+            location: "Remote",
+            salary: "$4.0k",
+            type: "Contract",
+            workStyle: "Remote"
         }
     ];
+
+    // Filtering Logic
+    const filterRoles = (roles) => {
+        return roles.filter(role => {
+            const matchSearch = searchTerm === '' ||
+                role.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                role.company.toLowerCase().includes(searchTerm.toLowerCase());
+            const matchLocation = location === '' ||
+                (role.location && role.location.toLowerCase().includes(location.toLowerCase())) ||
+                (role.vibe && role.vibe.toLowerCase().includes(location.toLowerCase()));
+
+            return matchSearch && matchLocation;
+        });
+    };
+
+    const filteredFeatured = filterRoles(featuredRoles);
+    const filteredRecentAll = filterRoles(recentRoles);
+
+    // Pagination
+    const filteredRecentVisible = filteredRecentAll.slice(0, visibleCount);
+    const hasMore = filteredRecentAll.length > visibleCount;
+
+    const handleLoadMore = () => {
+        setVisibleCount(prev => prev + 4);
+    };
 
     return (
         <div className="bg-background-light dark:bg-background-dark min-h-screen text-[#111816] dark:text-white">
@@ -73,8 +127,8 @@ const TalentHQ = () => {
             <div className="sticky top-0 z-50 bg-white/90 dark:bg-background-dark/95 backdrop-blur-md border-b border-[#dbe6e2] dark:border-gray-800">
                 <div className="flex items-center p-4 justify-between max-w-4xl mx-auto">
                     <div className="flex size-12 shrink-0 items-center justify-start">
-                        <Link to="/" className="bg-talent rounded-2xl size-10 flex items-center justify-center shadow-lg shadow-talent/20 hover:scale-110 transition-transform">
-                            <span className="material-symbols-outlined text-[#10221c] text-xl font-black">health_and_safety</span>
+                        <Link to="/" className="hover:scale-110 transition-transform">
+                            <img src={logo} alt="HealthFound" className="h-16 w-auto rounded-md" />
                         </Link>
                     </div>
                     <div className="flex flex-col items-center">
@@ -89,7 +143,7 @@ const TalentHQ = () => {
                 </div>
             </div>
 
-            <main className="max-w-7xl mx-auto pb-32">
+            <main className="max-w-4xl mx-auto pb-32">
                 {/* Search & Filter Section */}
                 <div className="bg-white dark:bg-transparent px-6 py-10 border-b border-[#dbe6e2] dark:border-gray-800">
                     <motion.div
@@ -137,98 +191,115 @@ const TalentHQ = () => {
                 </div>
 
                 {/* Featured Opportunities Section */}
-                <div className="pt-12">
-                    <div className="flex items-center justify-between px-6 pb-6">
-                        <h2 className="text-[#111816] dark:text-white text-3xl font-black tracking-tight">Featured Roles</h2>
-                        <button className="text-talent text-sm font-black uppercase tracking-widest hover:underline transition-all">View all</button>
-                    </div>
-                    <div className="flex overflow-x-auto hide-scrollbar gap-6 px-6 pb-8">
-                        {featuredRoles.map((role) => (
-                            <motion.div
-                                key={role.id}
-                                whileHover={{ y: -5 }}
-                                className="flex-none w-72 bg-white dark:bg-white/5 p-8 rounded-[2rem] border border-[#dbe6e2] dark:border-gray-800 shadow-sm hover:shadow-2xl transition-all cursor-pointer"
-                            >
-                                <div className="flex items-start justify-between mb-8">
-                                    <div className="size-16 bg-white rounded-2xl border border-gray-100 flex items-center justify-center overflow-hidden p-3 shadow-inner">
-                                        <img
-                                            alt={`${role.company} logo`}
-                                            className="w-full h-full object-contain"
-                                            src={role.logo}
-                                        />
+                {filteredFeatured.length > 0 && (
+                    <div className="pt-12">
+                        <div className="flex items-center justify-between px-6 pb-6">
+                            <h2 className="text-[#111816] dark:text-white text-3xl font-black tracking-tight">Featured Roles</h2>
+                            <button className="text-talent text-sm font-black uppercase tracking-widest hover:underline transition-all">View all</button>
+                        </div>
+                        <div className="flex overflow-x-auto hide-scrollbar gap-6 px-6 pb-8">
+                            {filteredFeatured.map((role) => (
+                                <motion.div
+                                    key={role.id}
+                                    whileHover={{ y: -5 }}
+                                    className="flex-none w-72 bg-white dark:bg-white/5 p-8 rounded-[2rem] border border-[#dbe6e2] dark:border-gray-800 shadow-sm hover:shadow-2xl transition-all cursor-pointer"
+                                >
+                                    <div className="flex items-start justify-between mb-8">
+                                        <div className="size-16 bg-white rounded-2xl border border-gray-100 flex items-center justify-center overflow-hidden p-3 shadow-inner">
+                                            <img
+                                                alt={`${role.company} logo`}
+                                                className="w-full h-full object-contain"
+                                                src={role.logo}
+                                            />
+                                        </div>
+                                        {role.tag && (
+                                            <span className="bg-talent/20 text-talent text-[10px] font-black px-3 py-1.5 rounded-full uppercase tracking-widest border border-talent/30">
+                                                {role.tag}
+                                            </span>
+                                        )}
                                     </div>
-                                    {role.tag && (
-                                        <span className="bg-talent/20 text-talent text-[10px] font-black px-3 py-1.5 rounded-full uppercase tracking-widest border border-talent/30">
-                                            {role.tag}
-                                        </span>
-                                    )}
-                                </div>
-                                <div className="space-y-1">
-                                    <p className="text-[#111816] dark:text-white text-xl font-black leading-tight">{role.title}</p>
-                                    <p className="text-[#61897c] text-base font-bold mb-6 tracking-tight">{role.company}</p>
-                                    <div className="flex flex-wrap gap-2 pt-4">
-                                        <span className="text-[10px] font-black px-3 py-2 bg-gray-50 dark:bg-white/10 text-gray-400 dark:text-white/40 rounded-xl uppercase tracking-widest">{role.vibe}</span>
-                                        <span className="text-[10px] font-black px-3 py-2 bg-talent/10 text-talent rounded-xl uppercase tracking-widest">{role.type}</span>
+                                    <div className="space-y-1">
+                                        <p className="text-[#111816] dark:text-white text-xl font-black leading-tight">{role.title}</p>
+                                        <p className="text-[#61897c] text-base font-bold mb-6 tracking-tight">{role.company}</p>
+                                        <div className="flex flex-wrap gap-2 pt-4">
+                                            <span className="text-[10px] font-black px-3 py-2 bg-gray-50 dark:bg-white/10 text-gray-400 dark:text-white/40 rounded-xl uppercase tracking-widest">{role.vibe}</span>
+                                            <span className="text-[10px] font-black px-3 py-2 bg-talent/10 text-talent rounded-xl uppercase tracking-widest">{role.type}</span>
+                                        </div>
                                     </div>
-                                </div>
-                            </motion.div>
-                        ))}
+                                </motion.div>
+                            ))}
+                        </div>
                     </div>
-                </div>
+                )}
 
                 {/* Recent Opportunities List */}
                 <div className="px-6 pt-12">
                     <h2 className="text-[#111816] dark:text-white text-3xl font-black tracking-tight pb-8">Recent Opportunities</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        {recentRoles.map((role, idx) => (
-                            <motion.div
-                                key={role.id}
-                                initial={{ opacity: 0, x: -10 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: idx * 0.1 }}
-                                className="group bg-white dark:bg-white/5 p-6 rounded-[2rem] border border-[#dbe6e2] dark:border-gray-800 flex flex-col sm:flex-row gap-6 shadow-sm hover:shadow-xl hover:border-talent/40 transition-all cursor-pointer"
-                            >
-                                <div className="size-16 bg-talent/10 rounded-2xl flex items-center justify-center shrink-0 border border-talent/20 shadow-inner group-hover:scale-105 transition-transform">
-                                    <span className="material-symbols-outlined text-talent text-3xl">medical_services</span>
-                                </div>
-                                <div className="flex-1">
-                                    <div className="flex justify-between items-start mb-1">
-                                        <h3 className="text-[#111816] dark:text-white text-xl font-black leading-tight group-hover:text-talent transition-colors">{role.title}</h3>
-                                        <button className="text-gray-300 hover:text-talent transition-colors">
-                                            <span className="material-symbols-outlined text-2xl">bookmark</span>
-                                        </button>
+                        {filteredRecentVisible.length > 0 ? (
+                            filteredRecentVisible.map((role, idx) => (
+                                <motion.div
+                                    key={role.id}
+                                    initial={{ opacity: 0, x: -10 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: idx * 0.1 }}
+                                    className="group bg-white dark:bg-white/5 p-6 rounded-[2rem] border border-[#dbe6e2] dark:border-gray-800 flex flex-col sm:flex-row gap-6 shadow-sm hover:shadow-xl hover:border-talent/40 transition-all cursor-pointer"
+                                >
+                                    <div className="size-16 bg-talent/10 rounded-2xl flex items-center justify-center shrink-0 border border-talent/20 shadow-inner group-hover:scale-105 transition-transform">
+                                        <span className="material-symbols-outlined text-talent text-3xl">medical_services</span>
                                     </div>
-                                    <p className="text-[#61897c] text-base font-bold tracking-tight mb-4">{role.company}</p>
-                                    <div className="flex flex-wrap items-center gap-6 text-[#61897c] dark:text-white/40 text-xs font-bold uppercase tracking-widest">
-                                        <div className="flex items-center gap-1.5">
-                                            <span className="material-symbols-outlined text-base">location_on</span>
-                                            <span>{role.location}</span>
+                                    <div className="flex-1">
+                                        <div className="flex justify-between items-start mb-1">
+                                            <h3 className="text-[#111816] dark:text-white text-xl font-black leading-tight group-hover:text-talent transition-colors">{role.title}</h3>
+                                            <button className="text-gray-300 hover:text-talent transition-colors">
+                                                <span className="material-symbols-outlined text-2xl">bookmark</span>
+                                            </button>
                                         </div>
-                                        <div className="flex items-center gap-1.5">
-                                            <span className="material-symbols-outlined text-base">payments</span>
-                                            <span className="text-talent font-black">{role.salary}</span>
+                                        <p className="text-[#61897c] text-base font-bold tracking-tight mb-4">{role.company}</p>
+                                        <div className="flex flex-wrap items-center gap-6 text-[#61897c] dark:text-white/40 text-xs font-bold uppercase tracking-widest">
+                                            <div className="flex items-center gap-1.5">
+                                                <span className="material-symbols-outlined text-base">location_on</span>
+                                                <span>{role.location}</span>
+                                            </div>
+                                            <div className="flex items-center gap-1.5">
+                                                <span className="material-symbols-outlined text-base">payments</span>
+                                                <span className="text-talent font-black">{role.salary}</span>
+                                            </div>
+                                        </div>
+                                        <div className="flex gap-2 mt-6">
+                                            <span className="text-[10px] font-black px-4 py-2 bg-talent text-[#10221c] rounded-full uppercase tracking-[0.2em] shadow-lg shadow-talent/10">{role.type}</span>
+                                            <span className="text-[10px] font-black px-4 py-2 bg-gray-50 dark:bg-white/10 text-gray-500 dark:text-white/60 rounded-full uppercase tracking-[0.2em]">{role.workStyle}</span>
                                         </div>
                                     </div>
-                                    <div className="flex gap-2 mt-6">
-                                        <span className="text-[10px] font-black px-4 py-2 bg-talent text-[#10221c] rounded-full uppercase tracking-[0.2em] shadow-lg shadow-talent/10">{role.type}</span>
-                                        <span className="text-[10px] font-black px-4 py-2 bg-gray-50 dark:bg-white/10 text-gray-500 dark:text-white/60 rounded-full uppercase tracking-[0.2em]">{role.workStyle}</span>
+                                    <div className="flex items-center justify-end sm:justify-center">
+                                        <Link
+                                            to={`/jobs/apply/${role.id}`}
+                                            className="bg-talent/20 hover:bg-talent text-talent hover:text-[#10221c] p-3 rounded-2xl transition-all group-hover:rotate-45"
+                                        >
+                                            <span className="material-symbols-outlined font-black">arrow_outward</span>
+                                        </Link>
                                     </div>
-                                </div>
-                                <div className="flex items-center justify-end sm:justify-center">
-                                    <Link
-                                        to={`/jobs/apply/${role.id}`}
-                                        className="bg-talent/20 hover:bg-talent text-talent hover:text-[#10221c] p-3 rounded-2xl transition-all group-hover:rotate-45"
-                                    >
-                                        <span className="material-symbols-outlined font-black">arrow_outward</span>
-                                    </Link>
-                                </div>
-                            </motion.div>
-                        ))}
+                                </motion.div>
+                            ))
+                        ) : (
+                            <div className="col-span-full py-8 text-center text-gray-400">
+                                No opportunities found matching your criteria.
+                            </div>
+                        )}
                     </div>
-                    <button className="w-full mt-12 py-5 text-center text-xs font-black uppercase tracking-[0.5em] text-[#61897c] dark:text-white/20 hover:text-talent transition-colors">
-                        Load more healthcare opportunities
-                    </button>
+                    {hasMore ? (
+                        <button
+                            onClick={handleLoadMore}
+                            className="w-full mt-12 py-5 text-center text-xs font-black uppercase tracking-[0.5em] text-[#61897c] dark:text-white/20 hover:text-talent transition-colors"
+                        >
+                            Load more healthcare opportunities
+                        </button>
+                    ) : (
+                        <div className="w-full mt-12 py-5 text-center text-xs font-black uppercase tracking-[0.5em] text-[#61897c]/50 dark:text-white/10">
+                            End of list
+                        </div>
+                    )}
                 </div>
             </main>
 
