@@ -47,6 +47,7 @@ import TopStartups from './pages/TopStartups';
 import SuccessNewsletter from './pages/SuccessNewsletter';
 import CareerConvo from './pages/CareerConvo';
 import StartupWeekly from './pages/StartupWeekly';
+import Pricing from './pages/Pricing';
 import WorkplaceCorner from './pages/WorkplaceCorner';
 import NotFound from './pages/NotFound';
 
@@ -103,6 +104,7 @@ function App() {
         <Route path="/career-convo" element={<CareerConvo />} />
         <Route path="/startup-weekly" element={<StartupWeekly />} />
         <Route path="/workplace-corner" element={<WorkplaceCorner />} />
+        <Route path="/pricing" element={<Pricing />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>

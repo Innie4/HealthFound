@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import BottomNav from '../components/BottomNav';
+import DesktopNav from '../components/DesktopNav';
+import AdBanner from '../components/AdBanner';
 import logo from '../assets/HealthF.jpeg';
 
 const TalentHQ = () => {
@@ -135,10 +137,8 @@ const TalentHQ = () => {
                         <h2 className="text-[#111816] dark:text-white text-xl font-black leading-tight tracking-tight">TalentHQ</h2>
                         <p className="text-[10px] uppercase tracking-[0.3em] text-[#61897c] font-black">By HealthFound Intelligence</p>
                     </div>
-                    <div className="flex w-12 items-center justify-end">
-                        <Link to="/profile" className="flex cursor-pointer items-center justify-center rounded-full h-10 w-10 bg-transparent text-[#111816] dark:text-white hover:bg-talent/10 transition-colors">
-                            <span className="material-symbols-outlined">account_circle</span>
-                        </Link>
+                    <div className="flex items-center justify-end">
+                        <DesktopNav />
                     </div>
                 </div>
             </div>
@@ -189,6 +189,8 @@ const TalentHQ = () => {
                         <span className="truncate">Post a Premium Job</span>
                     </Link>
                 </div>
+
+                <AdBanner />
 
                 {/* Featured Opportunities Section */}
                 {filteredFeatured.length > 0 && (

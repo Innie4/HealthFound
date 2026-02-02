@@ -13,14 +13,14 @@ const BottomNav = () => {
     ];
 
     return (
-        <nav className="fixed bottom-0 left-0 right-0 h-20 bg-white/95 dark:bg-background-dark/95 backdrop-blur-xl border-t border-gray-100 dark:border-white/10 flex justify-around items-center px-6 pb-8 z-50 transition-all sm:hidden">
+        <nav className="fixed bottom-0 left-0 right-0 h-20 bg-white/95 dark:bg-background-dark/95 backdrop-blur-xl border-t border-gray-100 dark:border-white/10 flex justify-around items-center px-6 pb-8 z-50 transition-all md:hidden">
             {items.map((item) => (
                 <Link
                     key={item.to}
                     to={item.to}
                     className={`flex flex-col items-center gap-1 transition-all ${path === item.to || (item.to !== '/' && path.startsWith(item.to))
-                            ? 'text-primary'
-                            : 'text-gray-400'
+                        ? 'text-primary'
+                        : 'text-gray-400'
                         }`}
                 >
                     <span className={`material-symbols-outlined ${path === item.to ? 'font-black' : ''}`}>

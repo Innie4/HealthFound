@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import BottomNav from '../components/BottomNav';
+import DesktopNav from '../components/DesktopNav';
+import AdBanner from '../components/AdBanner';
 import logo from '../assets/HealthF.jpeg';
 
 const Home = () => {
@@ -60,12 +62,10 @@ const Home = () => {
                         <img src={logo} alt="HealthFound" className="h-16 w-auto rounded-md" />
                         <h1 className="text-xl font-extrabold tracking-tight">HealthFound</h1>
                     </Link>
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-6">
+                        <DesktopNav />
                         <Link to="/search" className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">
                             <span className="material-symbols-outlined">search</span>
-                        </Link>
-                        <Link to="/profile" className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">
-                            <span className="material-symbols-outlined">person</span>
                         </Link>
                     </div>
                 </div>
@@ -126,6 +126,8 @@ const Home = () => {
                         ))}
                     </div>
                 </section>
+
+                <AdBanner />
 
                 {/* Featured Story Section */}
                 <section className="px-4 py-6">
@@ -305,7 +307,7 @@ const Home = () => {
             </main>
 
             {/* Footer Area (iOS Style Tab Bar Simulation) */}
-            <div className="h-20 sm:hidden"></div> {/* Spacer */}
+            <div className="h-20 md:hidden"></div> {/* Spacer */}
             <BottomNav />
         </div>
     );

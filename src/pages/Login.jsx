@@ -21,14 +21,12 @@ const Login = () => {
             <div className="relative flex h-auto min-h-screen w-full max-w-[480px] mx-auto flex-col bg-white dark:bg-background-dark group/design-root overflow-x-hidden shadow-xl">
                 {/* TopAppBar / Brand Logo Section */}
                 <div className="flex items-center bg-white dark:bg-background-dark p-4 pb-2 justify-between">
-                    <div className="text-[#111816] dark:text-white flex size-12 shrink-0 items-center justify-center">
-                        {/* Icon Placeholder */}
-                    </div>
+
                     <Link to="/" className="flex items-center gap-2">
                         <img src={logo} alt="HealthFound" className="h-16 w-auto rounded-md" />
                         <h2 className="text-[#111816] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">HealthFound</h2>
                     </Link>
-                    <div className="size-12"></div>
+
                 </div>
                 <div className="h-2 bg-white dark:bg-background-dark"></div>
 
