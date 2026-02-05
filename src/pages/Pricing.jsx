@@ -29,7 +29,7 @@ const Pricing = () => {
                     <div className="bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-3xl p-8 flex flex-col gap-6">
                         <div>
                             <span className="bg-gray-100 dark:bg-white/10 text-gray-500 dark:text-gray-300 px-3 py-1 rounded-full text-xs font-black uppercase tracking-widest">Free</span>
-                            <h3 className="text-4xl font-black mt-4">$0 <span className="text-base font-normal text-gray-500">/ month</span></h3>
+                            <h3 className="text-4xl font-black mt-4">₦0 <span className="text-base font-normal text-gray-500">/ month</span></h3>
                         </div>
                         <ul className="space-y-4 flex-grow">
                             <li className="flex items-center gap-3">
@@ -54,7 +54,7 @@ const Pricing = () => {
                     <div className="bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-3xl p-8 flex flex-col gap-6">
                         <div>
                             <span className="bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-3 py-1 rounded-full text-xs font-black uppercase tracking-widest">Starter</span>
-                            <h3 className="text-4xl font-black mt-4">$4.99 <span className="text-base font-normal text-gray-500">/ month</span></h3>
+                            <h3 className="text-4xl font-black mt-4">₦7,735 <span className="text-base font-normal text-gray-500">/ month</span></h3>
                         </div>
                         <ul className="space-y-4 flex-grow">
                             <li className="flex items-center gap-3">
@@ -86,7 +86,7 @@ const Pricing = () => {
                         </div>
                         <div>
                             <span className="bg-primary/20 text-primary px-3 py-1 rounded-full text-xs font-black uppercase tracking-widest">Pro Member</span>
-                            <h3 className="text-4xl font-black mt-4">$9.99 <span className="text-base font-normal text-gray-400">/ month</span></h3>
+                            <h3 className="text-4xl font-black mt-4">₦15,485 <span className="text-base font-normal text-gray-400">/ month</span></h3>
                         </div>
                         <ul className="space-y-4 flex-grow">
                             <li className="flex items-center gap-3">
