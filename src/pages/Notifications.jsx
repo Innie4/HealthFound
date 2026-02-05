@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import BottomNav from '../components/BottomNav';
+import AdBanner from '../components/AdBanner';
 
 const Notifications = () => {
     const notifications = [
@@ -47,6 +48,8 @@ const Notifications = () => {
             </header>
 
             <main className="max-w-xl mx-auto p-4 pb-24">
+                <AdBanner />
+
                 <div className="space-y-3">
                     {notifications.map((notif, idx) => (
                         <motion.div

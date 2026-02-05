@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import BottomNav from '../components/BottomNav';
+import AdBanner from '../components/AdBanner';
 
 const Insights = () => {
     return (
@@ -37,6 +38,9 @@ const Insights = () => {
                             </div>
                         </motion.div>
                     </div>
+
+                    {/* Ad Banner */}
+                    <AdBanner />
 
                     {/* Latest Market Report Section */}
                     <div className="px-4 py-8">

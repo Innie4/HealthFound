@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import AdBanner from '../components/AdBanner';
 
 const Contact = () => {
     return (
@@ -33,6 +34,8 @@ const Contact = () => {
                             Have a question about African healthcare innovation? Our team is here to help you navigate the ecosystem.
                         </motion.p>
                     </div>
+
+                    <AdBanner />
 
                     {/* Form Section */}
                     <motion.div

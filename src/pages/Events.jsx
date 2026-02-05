@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import BottomNav from '../components/BottomNav';
+import AdBanner from '../components/AdBanner';
 
 const Events = () => {
     const upcomingEvents = [
@@ -43,6 +44,8 @@ const Events = () => {
                         </motion.h2>
                         <p className="text-gray-500 dark:text-white/40 text-lg font-medium mt-1">Connect with the African HealthTech community.</p>
                     </div>
+
+                    <AdBanner />
 
                     <div className="px-4 py-4 space-y-6">
                         {upcomingEvents.map((event, idx) => (

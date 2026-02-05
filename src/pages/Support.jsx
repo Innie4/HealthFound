@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import AdBanner from '../components/AdBanner';
 
 const Support = () => {
     return (
@@ -44,6 +45,8 @@ const Support = () => {
                             ))}
                         </div>
                     </section>
+
+                    <AdBanner />
 
                     {/* FAQs */}
                     <section className="mb-12">

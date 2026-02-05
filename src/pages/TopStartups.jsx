@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import AdBanner from '../components/AdBanner';
 
 const TopStartups = () => {
     return (
@@ -30,6 +31,8 @@ const TopStartups = () => {
                         </button>
                     ))}
                 </div>
+
+                <AdBanner />
 
                 <main className="p-4 space-y-8">
                     {/* Rank #1 - Featured Style */}

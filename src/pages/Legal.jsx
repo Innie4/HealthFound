@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import AdBanner from '../components/AdBanner';
 
 const Legal = () => {
     return (
@@ -22,6 +23,8 @@ const Legal = () => {
                             <p className="text-[10px] font-black uppercase tracking-[0.2em] text-[#63886f] mb-1">Last Revision</p>
                             <p className="text-sm font-bold">October 24, 2023</p>
                         </div>
+
+                        <AdBanner />
 
                         <section className="space-y-6">
                             <h1 className="text-3xl font-black tracking-tight leading-tight">Data Integrity & Transparency</h1>

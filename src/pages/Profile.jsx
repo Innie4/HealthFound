@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import BottomNav from '../components/BottomNav';
+import AdBanner from '../components/AdBanner';
 
 const Profile = () => {
     return (
@@ -48,6 +49,8 @@ const Profile = () => {
                         </div>
                     </div>
                 </div>
+
+                <AdBanner />
 
                 {/* Action List */}
                 <div className="space-y-4">

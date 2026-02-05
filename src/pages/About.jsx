@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import AdBanner from '../components/AdBanner';
 
 const About = () => {
     const pillars = [

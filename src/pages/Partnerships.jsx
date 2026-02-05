@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import AdBanner from '../components/AdBanner';
 
 const Partnerships = () => {
     return (
@@ -33,6 +34,8 @@ const Partnerships = () => {
                             <p className="text-white/70 text-sm leading-relaxed max-w-[320px]">Custom research, ecosystem mapping, and strategic advisory for institutional stakeholders.</p>
                         </div>
                     </section>
+
+                    <AdBanner />
 
                     {/* Service Categories */}
                     <section className="p-6">

@@ -266,6 +266,11 @@ const Home = () => {
                     </div>
                 </section>
 
+                {/* Large Featured Ad Banner */}
+                <section className="px-4 py-8">
+                    <AdBanner variant="horizontal-large" />
+                </section>
+
                 {/* Newsletter Subscription Card */}
                 <section className="px-4 py-12">
                     <motion.div
